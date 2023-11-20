@@ -1,0 +1,40 @@
+{% include "header.html" %}
+
+<!--Page Header-->
+<!--    style="background-image: url('../static/assets/img/home-bg.jpeg')"-->
+<header
+    class="masthead"
+    style="background-image: url('static/assets/img/top_banner.jpg'); filter: blur(0.5px);"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Coffee & WiFi</h1>
+                    <span class="subheading">Discover where to go to drink a coffee and work</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--Main content-->
+<div class="text-center" style="margin:40px">
+    <h2>Cafes in your zone</h2>
+</div>
+
+<div class="container px-4 px-lg-5">
+    <div class="row row-cols-3 justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-4">
+            <div class="card text-center">
+                <img class="card-img-left" src='../static/assets/img/cafe.jpg' alt="Computer code">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#!">Cafe Star</a></h5>
+<!--                    <p class="card-text">Projects Developed</p>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
