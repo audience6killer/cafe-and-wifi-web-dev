@@ -245,12 +245,16 @@ sup {
   top: -0.5em;
 }
 
-a {
-  color: var(--bs-link-color);
+div a{
+    color: var(--bs-black);
+}
+
+div a, a:hover {
   text-decoration: none;
 }
-a:hover {
+div a:hover {
   color: var(--bs-link-hover-color);
+  opacity: 0.8;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -311,6 +315,7 @@ svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  align: center;
 }
 
 caption {
@@ -1751,6 +1756,7 @@ progress {
   margin-bottom: 1rem;
   color: var(--bs-table-color);
   vertical-align: top;
+  horizontal-align: center;
   border-color: var(--bs-table-border-color);
 }
 .table > :not(caption) > * > * {
@@ -4093,6 +4099,7 @@ textarea.form-control-lg {
   background-color: var(--bs-card-bg);
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  margin-bottom: 1rem;
 }
 .card > hr {
   margin-right: 0;
@@ -4179,6 +4186,11 @@ textarea.form-control-lg {
 .card-img-bottom {
   width: 100%;
 }
+.card-img-fixed {
+
+      height: 250px; /* Set the height as needed */
+      object-fit: cover; /* Ensure the image covers the entire space */
+ }
 
 .card-group > .card {
   margin-bottom: var(--bs-card-group-margin);
@@ -10859,4 +10871,61 @@ header.masthead .post-heading .meta a {
 .flash {
   color: #ee6f57;
   text-align: center;
+}
+.front, .back {
+	 display: flex;
+	 border-radius: 6px;
+	 background-position: center;
+	 background-size: cover;
+	 text-align: center;
+	 justify-content: center;
+	 align-items: center;
+	 position: absolute;
+	 height: 100%;
+	 width: 100%;
+	 -webkit-backface-visibility: hidden;
+	 backface-visibility: hidden;
+	 transform-style: preserve-3d;
+	 transition: ease-in-out 600ms;
+}
+ .front {
+	 background-size: cover;
+	 padding: 2rem;
+	 font-size: 1.618rem;
+	 font-weight: 600;
+	 color: #fff;
+	 overflow: hidden;
+	 font-family: Poppins, sans-serif;
+}
+ .front:before {
+	 position: absolute;
+	 display: block;
+	 content: '';
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
+	 opacity: 0.25;
+	 z-index: -1;
+}
+ .card:hover .front {
+	 transform: rotateY(180deg);
+}
+ .card:nth-child(even):hover .front {
+	 transform: rotateY(-180deg);
+}
+ .back {
+	 background: #fff;
+	 transform: rotateY(-180deg);
+	 padding: 0 2em;
+}
+ .card:hover .back {
+	 transform: rotateY(0deg);
+}
+ .card:nth-child(even) .back {
+	 transform: rotateY(180deg);
+}
+ .card:nth-child(even):hover .back {
+	 transform: rotateY(0deg);
 }

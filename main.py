@@ -26,13 +26,24 @@ with app.app_context():
 # all Flask routes below
 @app.route("/")
 def home():
+    """All the cafes in the db are queried and organized in a list with a vector of
+    3 cafes each, so it can be displayed this way using jinjer"""
     cafes_query = Cafe.query.all()
-    db_entries = []
-    for cafe in cafes_query:
-        db_entries.append(cafe.to_dict())
-        print(cafe.to_dict())
+    cafes_dict = [cafe.to_dict() for cafe in cafes_query]
+    cafes_ordered = []
+    for i in range(0, len(cafes_query), 3):
+        cafes_ordered.append(cafes_dict[i:i+3])
 
-    return render_template("index.html", all_posts=db_entries)
+    print(cafes_ordered)
+
+    return render_template("index.html", all_cafes=cafes_ordered)
+
+
+@app.route('/cafe/<int:cafe_id>', methods=['POST', 'GET'])
+def cafe_details(cafe_id):
+    requested_cafe = db.get_or_404(Cafe, cafe_id)
+
+    return render_template('cafe.html', cafe=requested_cafe)
 
 
 @app.route('/about')

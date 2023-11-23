@@ -23,20 +23,23 @@
 </div>
 
 <div class="container px-4 px-lg-5">
+    {% for row in all_cafes %}
     <div class="row row-cols-3 justify-content-center">
+        {% for cafe in row %}
         <div class="col-sm-12 col-md-8 col-lg-4">
-            {% for post in all_posts %}
             <div class="card text-center">
-
-                <img class="card-img-left" src='{{post.img_url}}' alt="Computer code">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="#!">{{post.name}}</a></h5>
-<!--                    <p class="card-text">Overall Score: ⭐⭐⭐⭐</p>-->
-                </div>
+                <a href="{{ url_for('cafe_details', cafe_id=cafe.id) }}">
+                    <img src='{{cafe.img_url}}' class="card-img-top card-img-fixed">
+                    <div class="card-body">
+                        <h5 class="card-title">{{cafe.name}}</h5>
+                        <p class="card-text">{{cafe.location}}</p>
+                    </div>
+                </a>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 
 {% include "footer.html" %}

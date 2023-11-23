@@ -1,0 +1,96 @@
+{% include "header.html" %}
+
+<header
+    class="masthead"
+    style="background-image: url('{{cafe.img_url}}')"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{cafe.name}}</h1>
+                    <span class="subheading">{{cafe.location}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="text-center" style="margin:40px">
+    <h2>Description</h2>
+</div>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Characteristic</th>
+                        <th scope="col">Grade/Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Has Sockets</th>
+                        {% if cafe.has_sockets %}
+                        <td>Yes</td>
+                        {% else %}
+                        <td>Yes</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Has Toilet</th>
+                        {% if cafe.has_toilet %}
+                        <td>Yes</td>
+                        {% else %}
+                        <td>Yes</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Has WiFi</th>
+                        {% if cafe.has_wifi %}
+                        <td>Yes</td>
+                        {% else %}
+                        <td>Yes</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Can take calls</th>
+                        {% if cafe.can_take_calls %}
+                        <td>Yes</td>
+                        {% else %}
+                        <td>Yes</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Seats</th>
+                        <td>{{cafe.seats}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Coffee Price</th>
+                        <td>{{cafe.coffee_price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+                Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
+                Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
+                undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
+                et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
+                theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum
+                dolor sit amet..", comes from a line in section 1.10.32.
+            </p>
+        </div>
+    </div>
+</div>
+{% include "footer.html"%}
